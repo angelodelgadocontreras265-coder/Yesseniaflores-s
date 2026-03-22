@@ -1,0 +1,138 @@
+<!DOCTYPE html><html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Flores Amarillas 🌼</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Arial', sans-serif;
+      background: linear-gradient(to bottom, #fff9c4, #ffe082);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      overflow: hidden;
+      text-align: center;
+    }.container {
+  background: rgba(255,255,255,0.95);
+  padding: 30px;
+  border-radius: 25px;
+  box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+  max-width: 420px;
+  animation: fadeIn 2s ease;
+}
+
+h1 {
+  color: #fbc02d;
+  font-size: 2.2em;
+}
+
+p {
+  color: #555;
+  font-size: 1.1em;
+  margin: 20px 0;
+  line-height: 1.5;
+}
+
+.flower {
+  font-size: 3em;
+  animation: float 2s infinite ease-in-out;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.9); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+button {
+  background: #fbc02d;
+  border: none;
+  padding: 12px 25px;
+  border-radius: 12px;
+  color: white;
+  font-size: 1em;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+button:hover {
+  background: #f9a825;
+  transform: scale(1.05);
+}
+
+.hidden {
+  display: none;
+  margin-top: 15px;
+  font-weight: bold;
+  color: #d84315;
+}
+
+/* Flores cayendo */
+.falling {
+  position: absolute;
+  top: -50px;
+  font-size: 2em;
+  animation: fall linear infinite;
+}
+
+@keyframes fall {
+  to {
+    transform: translateY(110vh);
+  }
+}
+
+  </style>
+</head>
+<body>  <div id="intro" style="position:absolute;top:0;left:0;width:100%;height:100%;background:#000000cc;color:white;display:flex;flex-direction:column;justify-content:center;align-items:center;font-size:1.5em;z-index:10;">
+    <p>Yessenia… esto es para ti 💛</p>
+    <button onclick="entrar()">Entrar 🌼</button>
+  </div>  <div class="container">
+    <div class="flower">🌼🌼🌼</div>
+    <h1>Feliz Día de las Flores Amarillas</h1>
+    <p>
+      Para ti, Yessenia 💛<br><br>
+      Hoy no solo te regalo flores amarillas,
+      te regalo todo lo que siento por ti.
+      Eres mi alegría, mi tranquilidad
+      y la razón por la que sonrío cada día.
+    </p><button onclick="mostrarMensaje()">Tócame 💌</button>
+
+<div id="mensaje" class="hidden">
+  Te amo muchísimo 💛🌼<br>
+  Gracias por estar en mi vida.
+</div>
+
+  </div>  <!-- Música -->  <audio autoplay loop>
+    <source src="https://www.bensound.com/bensound-music/bensound-romantic.mp3" type="audio/mpeg">
+  </audio>  <script>
+    function entrar() {
+      document.getElementById('intro').style.display = 'none';
+    }
+
+    function mostrarMensaje() {
+      document.getElementById('mensaje').style.display = 'block';
+    }
+
+    // Crear flores cayendo
+    function crearFlor() {
+      const flor = document.createElement('div');
+      flor.classList.add('falling');
+      flor.innerHTML = '🌼';
+      flor.style.left = Math.random() * 100 + 'vw';
+      flor.style.animationDuration = (3 + Math.random() * 5) + 's';
+      document.body.appendChild(flor);
+
+      setTimeout(() => {
+        flor.remove();
+      }, 8000);
+    }
+
+    setInterval(crearFlor, 400);
+  </script></body>
+</html>
